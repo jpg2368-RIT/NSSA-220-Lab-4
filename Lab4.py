@@ -22,19 +22,18 @@ def main(args):
         time, cpu = parse(f"./metrics/APM{ip1}_metrics.csv", 1)
         print(f"[!] Parsed APM {ip1} cpu utilization")
         color = ""
-        match ip1:
-            case 1:
-                color = "blue"
-            case 2:
-                color = "black"
-            case 3:
-                color = "red"
-            case 4:
-                color = "green"
-            case 5:
-                color = "yellow"
-            case 6:
-                color = "cyan"
+        if ip1 == 1:
+            color = "blue"
+        elif ip1 == 2:
+            color = "black"
+        elif ip1 == 3:
+            color = "red"
+        elif ip1 == 4:
+            color = "green"
+        elif ip1 == 5:
+            color = "yellow"
+        elif ip1 == 6:
+            color = "cyan"
         plot.plot(time, cpu, label=f"APM {ip1}", color=color)
     plot.legend(loc="upper right")
     plot.title("APM CPU Utilization")
